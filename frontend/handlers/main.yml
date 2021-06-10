@@ -1,6 +1,7 @@
 ---
 # handlers file for frontend
 - name: Restart Tomcat
-      service:
-        name: tomcat9
-        state: restarted
+  service:
+    name: tomcat9
+    state: restarted
+    
