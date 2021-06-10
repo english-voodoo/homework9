@@ -1,0 +1,17 @@
+---
+- hosts: build-host
+  roles:
+    - common
+    - role: build-server
+      vars:
+        dir: '/opt/a'
+        app_port: 5000
+      tags: typeA
+- hosts: app
+  roles:
+    - common
+    - role: frontenf
+      vars:
+        dir: '/opt/a'
+        app_port: 5000
+      tags: typeA
