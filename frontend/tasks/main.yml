@@ -1,2 +1,13 @@
 ---
 # tasks file for frontend
+ - name: Check for Tomcat
+    apt:
+      name: tomcat9
+      state: latest
+  - name: Push WAR from build-host to frontend
+    synchronize:
+      src: /opt/build/boxfuse-sample-java-war-hello/target/hello-1.0.war
+      dest: /var/lib/tomcat9/webapps/hello-1.0.war
+      mode: push
+      delegate_to: app
+      notify: Restart Tomcat

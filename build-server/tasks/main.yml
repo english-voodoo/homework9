@@ -1,2 +1,29 @@
 ---
 # tasks file for build-server
+  - name: Check for Java
+    apt:
+      name: default-jdk
+      state: latest
+  - name: Check for git
+    apt:
+      name: git
+      state: latest
+  - name: Check for maven
+    apt:
+      name: maven
+      state: latest
+  - name: Make dir for build
+    file:
+      path: /opt/build/boxfuse-sample-java-war-hello
+      state: directory
+      mode: '0755'
+
+  - name: Clone boxfuse repository
+    git:
+      clone: yes
+      repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
+      dest: /opt/build/boxfuse-sample-java-war-hello
+  - name: Build with maven
+    command: mvn package
+    args:
+      chdir: /opt/build/boxfuse-sample-java-war-hello

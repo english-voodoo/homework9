@@ -1,2 +1,12 @@
 ---
-# tasks file for common
+- name: apt update
+  apt:
+    update_cache: yes
+- name: Check for mc
+  apt:
+    name: mc
+    state: latest
+- name: Check for rsync
+  apt:
+    name: rsync
+    state: latest
