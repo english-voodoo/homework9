@@ -10,4 +10,4 @@
     dest: /var/lib/tomcat9/webapps/hello-1.0.war
     mode: push
     delegate_to: app
-    notify: Restart Tomcat
+  notify: Restart Tomcat
