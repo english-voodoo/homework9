@@ -1,9 +1,11 @@
 ---
 - hosts: build-host
+  become: yes
   roles:
     - common
     - build-server
 - hosts: app
+  become: yes
   roles:
     - common
     - frontend
