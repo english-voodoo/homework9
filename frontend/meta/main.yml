@@ -54,5 +54,4 @@ galaxy_info:
 
 dependencies:
   - role: common
-  - role: build-server  
   
